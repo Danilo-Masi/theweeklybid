@@ -2,47 +2,46 @@ import { NavLink } from 'react-router-dom'
 import Countdown from '../ui/Countdown'
 
 const navLinks = [
-    { to: '/how-it-works', label: 'How it works' },
-    { to: '/history', label: 'History' },
-    { to: '/archive', label: 'Archive' },
-    { to: '/stats', label: 'Stats' },
+    { to: '/', label: 'HOME' },
+    { to: '/how-it-works', label: 'HOW IT WORKS' },
+    { to: '/archive', label: 'ARCHIVE' },
+    { to: '/stats', label: 'STATS' },
 ]
 
-// TODO: sostituire con la data reale letta dal server
 const currentAuctionEnd = new Date(Date.now() + 1000 * 60 * 60 * 26)
 
 export default function Header() {
     return (
-        <header className="border-b-2 border-ink/90">
-            <div className="mx-auto max-w-5xl">
-
-                <div className="flex items-center justify-between py-3 text-xs text-muted bg-red-500">
-                    <span>Number 12 · Week 34</span>
-                    <Countdown targetDate={currentAuctionEnd} label="Next issue in:" />
+        <header className="bg-panel bevel-out border-b-0">
+            <div className="mx-auto max-w-5xl ">
+                {/* Intestazione */}
+                <div className="flex items-center justify-between py-2 font-display text-[10px]">
+                    {/* TODO: Generare automaticamente i dati */}
+                    <span>N.12 · SETTIMANA 34</span>
+                    <Countdown targetDate={currentAuctionEnd} label="PROSSIMO NUMERO TRA" />
                 </div>
-
-                <div className="pb-6 text-center bg-green-500">
-                    <NavLink to="/" className="inline-block">
-                        <h1 className="font-serif text-4xl sm:text-5xl font-medium tracking-tight italic">
-                            The Weekly Bid
+                {/* Titolo */}
+                <div className="bg-accent bevel-out py-6 text-center my-2">
+                    <NavLink to="/">
+                        <h1 className="font-display text-2xl sm:text-4xl text-gold drop-shadow-[2px_2px_0_rgba(0,0,0,0.8)]">
+                            THE WEEKLY BID
                         </h1>
                     </NavLink>
-                    <p className="mt-2 text-sm text-muted">
+                    <p className="font-sans text-xl text-paper mt-2">
                         10 slots every week. The highest bidder gets the front page.
                     </p>
                 </div>
-
-                <nav className="flex justify-center gap-8 border-t border-ink/10 py-3 text-sm bg-blue-300">
+                {/* Link */}
+                <nav className="flex justify-center gap-6 py-2 font-display text-[10px]">
                     {navLinks.map((link) => (
                         <NavLink
                             key={link.to}
                             to={link.to}
-                            className={({ isActive }) => `transition-colors hover:text-accent ${isActive ? 'text-ink font-medium' : 'text-muted'}`}>
+                            className={({ isActive }) => `px-2 py-1 bevel-out bg-panel hover:bg-gold transition-colors ${isActive ? 'bg-gold' : ''}`}>
                             {link.label}
                         </NavLink>
                     ))}
                 </nav>
-
             </div>
         </header>
     )

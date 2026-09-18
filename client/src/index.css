@@ -1,5 +1,33 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #0a0a0a;
+  --color-paper: #f2ead9;
+  --color-panel: #c7c7c7;
+  --color-panel-light: #ffffff;
+  --color-panel-dark: #6e6e6e;
+  --color-muted: #4a4a4a;
+  --color-accent: #e4002b;
+  --color-gold: #ffcc00;
+
+  --font-display: "Press Start 2P", monospace;
+  --font-sans: "VT323", monospace;
+}
+
 body {
-  @apply bg-paper text-ink font-sans antialiased;
+  @apply bg-paper text-ink font-sans antialiased text-lg;
+}
+
+/* bottone/box "in rilievo", il classico effetto Windows 95 */
+.bevel-out {
+  border: 2px solid;
+  border-color: var(--color-panel-light) var(--color-panel-dark) var(--color-panel-dark) var(--color-panel-light);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* box "incassato", per elementi tipo il countdown */
+.bevel-in {
+  border: 2px solid;
+  border-color: var(--color-panel-dark) var(--color-panel-light) var(--color-panel-light) var(--color-panel-dark);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.4), inset -1px -1px 0 rgba(255, 255, 255, 0.6);
 }

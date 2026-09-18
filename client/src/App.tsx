@@ -4,12 +4,12 @@ import Home from './pages/Home';
 import Archive from './pages/Archive'
 import EditionDetail from './pages/EditionDetail'
 import HowItWorks from './pages/HowItWorks'
-import History from './pages/History'
 import Stats from './pages/Stats'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import BidConfirmation from './pages/BidConfirmation'
 import NotFound from './pages/NotFound'
+import NextEdition from './pages/NextEdition';
 
 export default function App() {
   return (
@@ -19,8 +19,8 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="archive" element={<Archive />} />
           <Route path="archive/:issueNumber" element={<EditionDetail />} />
+          <Route path="next-edition" element={<NextEdition />} />
           <Route path="how-it-works" element={<HowItWorks />} />
-          <Route path="history" element={<History />} />
           <Route path="stats" element={<Stats />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />

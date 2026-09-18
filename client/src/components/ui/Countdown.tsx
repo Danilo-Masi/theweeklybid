@@ -7,18 +7,20 @@ interface CountdownProps {
 
 const pad = (n: number) => n.toString().padStart(2, '0')
 
-export default function Countdown({ targetDate, label = 'chiude tra' }: CountdownProps) {
+export default function Countdown({ targetDate, label = 'CHIUDE TRA' }: CountdownProps) {
     const { days, hours, minutes, seconds, isOver } = useAuctionCountdown(targetDate)
 
-    if (isOver) return <span className="text-sm font-medium text-muted">asta chiusa</span>
+    if (isOver) {
+        return <span className="font-display text-xs text-muted">ASTA CHIUSA</span>
+    }
 
     return (
-        <span className="inline-flex items-center gap-1.5 text-sm">
-            <span className="text-muted">{label}</span>
-            <span className="inline-flex items-baseline gap-0.5 font-semibold text-accent animate-pulse tabular-nums">
-                {days > 0 && <span>{days}g</span>}
-                <span>{pad(hours)}:{pad(minutes)}:{pad(seconds)}</span>
+        <div className="inline-flex items-center gap-2">
+            <span className="font-display text-[10px] text-ink">{label}</span>
+            <span className="bevel-in bg-ink text-gold font-display text-sm px-2 py-1 tabular-nums">
+                {days > 0 && `${days}G `}
+                {pad(hours)}:{pad(minutes)}:{pad(seconds)}
             </span>
-        </span>
+        </div>
     )
 }
