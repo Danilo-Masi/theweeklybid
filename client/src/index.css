@@ -1,33 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink: #0a0a0a;
-  --color-paper: #f2ead9;
-  --color-panel: #c7c7c7;
-  --color-panel-light: #ffffff;
-  --color-panel-dark: #6e6e6e;
-  --color-muted: #4a4a4a;
-  --color-accent: #e4002b;
-  --color-gold: #ffcc00;
+  --color-ink: #111111;
+  --color-paper: #ffffff;
+  --color-panel: #f2f2f2;
+  --color-border: #999999;
+  --color-muted: #555555;
+  --color-link: #0000ee;
+  --color-visited: #551a8b;
+  --color-danger: #cc0000;
 
-  --font-display: "Press Start 2P", monospace;
-  --font-sans: "VT323", monospace;
+  --font-serif: "Times New Roman", Times, Georgia, serif;
+  --font-sans: Arial, Helvetica, sans-serif;
 }
 
 body {
-  @apply bg-paper text-ink font-sans antialiased text-lg;
+  @apply bg-panel text-ink font-sans antialiased;
 }
 
-/* bottone/box "in rilievo", il classico effetto Windows 95 */
-.bevel-out {
-  border: 2px solid;
-  border-color: var(--color-panel-light) var(--color-panel-dark) var(--color-panel-dark) var(--color-panel-light);
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.6), inset -1px -1px 0 rgba(0, 0, 0, 0.4);
+a {
+  @apply text-link underline;
 }
 
-/* box "incassato", per elementi tipo il countdown */
-.bevel-in {
-  border: 2px solid;
-  border-color: var(--color-panel-dark) var(--color-panel-light) var(--color-panel-light) var(--color-panel-dark);
-  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.4), inset -1px -1px 0 rgba(255, 255, 255, 0.6);
+a:visited {
+  color: var(--color-visited);
+}
+
+.panel-box {
+  @apply bg-paper border border-border;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 22s linear infinite;
+  white-space: nowrap;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.blink {
+  animation: blink 1s steps(1) infinite;
 }
