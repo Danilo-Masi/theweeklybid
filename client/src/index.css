@@ -58,3 +58,27 @@ a:visited {
 .blink {
   animation: blink 1s steps(1) infinite;
 }
+
+@keyframes shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.ticket-shape {
+  clip-path: polygon(0% 12px, 12px 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+@keyframes march {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.marching-ants {
+  animation: march 1s linear infinite;
+}
