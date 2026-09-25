@@ -7,24 +7,24 @@ interface Props {
 }
 
 export default function AdSlotSmall({ slot, variant, onBidClick }: Props) {
-    const image = (
-        <div className="panel-box w-full" style={{ aspectRatio: '1 / 1' }}>
-            <img src={slot.imageUrl} alt={slot.title} className="h-full w-full object-cover" />
-        </div>
-    )
-
     if (variant === 'auction') {
         return (
-            <button onClick={() => onBidClick?.(slot)} className="block w-full text-center no-underline">
-                {image}
-                <span className="mt-0.5 block text-[10px]">${slot.currentPrice}</span>
+            <button type="button" onClick={() => onBidClick?.(slot)} className="block w-full text-center cursor-pointer">
+                <div className="panel-box relative w-full aspect-square">
+                    <img src={slot.imageUrl} alt="Current leading bid" className="h-full w-full object-cover" />
+                    <div className="absolute inset-x-0 top-0 bg-danger text-paper py-1.5">
+                        <p className="text-xs font-bold leading-tight blink">${slot.currentPrice}</p>
+                    </div>
+                </div>
             </button>
         )
     }
 
     return (
         <a href={slot.targetUrl} target="_blank" rel="noreferrer" className="block text-center">
-            {image}
+            <div className="panel-box w-full aspect-square">
+                <img src={slot.imageUrl} alt={slot.title} className="h-full w-full object-cover" />
+            </div>
         </a>
     )
 }

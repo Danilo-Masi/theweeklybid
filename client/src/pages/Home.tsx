@@ -7,6 +7,8 @@ import MonthlyRecordsWidget from '../components/widgets/MonthlyRecordsWidget'
 import StatsTicker from '../components/ui/StatsTicker'
 import { mockSlots } from '../lib/mockData'
 import NextEditionCTA from '../components/ads/NextEditionCTA'
+import SlotWidgte from '../components/widgets/SlotWidget'
+import WeekRecordsWidget from '../components/widgets/WeekRecordsWidget'
 
 export default function Home() {
   const hero = mockSlots.find((s) => s.size === 'hero')!
@@ -17,8 +19,9 @@ export default function Home() {
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-[180px_1fr_180px]">
 
       {/* Widget statistiche del numero */}
-      <div className="order-2 lg:order-1 relative">
+      <div className="order-2 lg:order-1">
         <BidStatsWidget />
+        <SlotWidgte />
       </div>
 
       <main className="order-1 lg:order-2">
@@ -32,7 +35,7 @@ export default function Home() {
         {hero.isSold ? (
           <AdSlotHero slot={hero} variant="published" />
         ) : (
-          <div className="w-full" style={{ aspectRatio: '728 / 90' }}>
+          <div className="w-full aspect-square md:aspect-video">
             <UnderConstruction />
           </div>
         )}
@@ -43,7 +46,7 @@ export default function Home() {
             slot.isSold ? (
               <AdSlotMedium key={slot.id} slot={slot} variant="published" />
             ) : (
-              <div key={slot.id} className="w-full bg-red-500">
+              <div key={slot.id} className="w-full aspect-video md:aspect-square">
                 <UnderConstruction />
               </div>
             )
@@ -56,7 +59,7 @@ export default function Home() {
             slot.isSold ? (
               <AdSlotSmall key={slot.id} slot={slot} variant="published" />
             ) : (
-              <div key={slot.id} className="w-full" style={{ aspectRatio: '1 / 1' }}>
+              <div key={slot.id} className="w-full aspect-square">
                 <UnderConstruction />
               </div>
             )
@@ -65,7 +68,8 @@ export default function Home() {
       </main>
 
       {/* Widget statistiche mensili */}
-      <div className="order-3 relative">
+      <div className="order-3">
+        <WeekRecordsWidget />
         <MonthlyRecordsWidget />
       </div>
     </div>

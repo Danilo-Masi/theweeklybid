@@ -38,3 +38,11 @@ export const mockSlots: AdSlot[] = [
 
 // Single source of truth for the next auction's closing time
 export const nextAuctionEnd = new Date(Date.now() + 1000 * 60 * 60 * 24 * 3)
+
+// Slots for the NEXT edition, still open for bidding (nothing sold yet,
+// bids lower than the published ones since the auction just opened)
+export const mockAuctionSlots: AdSlot[] = mockSlots.map((s) => ({
+    ...s,
+    isSold: false,
+    currentPrice: Math.round(s.currentPrice * 0.6),
+}))
