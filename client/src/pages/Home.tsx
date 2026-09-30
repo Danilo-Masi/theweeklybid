@@ -7,7 +7,7 @@ import MonthlyRecordsWidget from '../components/widgets/MonthlyRecordsWidget'
 import StatsTicker from '../components/ui/StatsTicker'
 import { mockSlots } from '../lib/mockData'
 import NextEditionCTA from '../components/ads/NextEditionCTA'
-import SlotWidgte from '../components/widgets/SlotWidget'
+import SlotWidgte from '../components/widgets/ClicksWidget'
 import WeekRecordsWidget from '../components/widgets/WeekRecordsWidget'
 
 export default function Home() {

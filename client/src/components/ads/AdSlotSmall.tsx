@@ -25,6 +25,9 @@ export default function AdSlotSmall({ slot, variant, onBidClick }: Props) {
             <div className="panel-box w-full aspect-square">
                 <img src={slot.imageUrl} alt={slot.title} className="h-full w-full object-cover" />
             </div>
+            <div className="mt-1 text-start text-sm">
+                <a href={slot.targetUrl} target="_blank" rel="noreferrer">{slot.title}</a>
+            </div>
         </a>
     )
 }

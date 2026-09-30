@@ -11,3 +11,15 @@ export interface AdSlot {
     isSold: boolean
     targetUrl?: string
 }
+
+export interface Edition {
+    issueNumber: number
+    publishedAt: string // ISO date
+    slots: AdSlot[]
+}
+
+export interface LegalSection {
+    id: string
+    heading: string
+    body: string
+}

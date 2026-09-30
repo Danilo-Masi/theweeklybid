@@ -22,13 +22,13 @@ export default function AdSlotMedium({ slot, variant, onBidClick }: Props) {
     }
 
     return (
-        <div className="w-full">
+        <a href={slot.targetUrl} target="_blank" rel="noreferrer" className="block text-center">
             <div className="panel-box aspect-video md:aspect-square">
                 <img src={slot.imageUrl} alt={slot.title} className="h-full w-full object-cover" />
             </div>
             <div className="mt-1 text-start text-sm">
                 <a href={slot.targetUrl} target="_blank" rel="noreferrer">Sponsored by: {slot.title}</a>
             </div>
-        </div>
+        </a>
     )
 }
