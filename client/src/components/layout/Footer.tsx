@@ -11,13 +11,6 @@ export default function Footer() {
                     <Link to="/how-it-works">How it works</Link>
                 </nav>
             </div>
-
-            <div className="border-t border-border">
-                <div className="mx-auto max-w-3xl px-4 py-3 flex flex-wrap justify-center gap-2">
-                    <span className="panel-box px-2 py-1 text-[11px] no-underline">Optimized for Netscape Navigator 4.0</span>
-                    <span className="panel-box px-2 py-1 text-[11px] no-underline">Recommended resolution: 800x600</span>
-                </div>
-            </div>
         </footer>
     )
 }

@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Win95";
+  src: url(./assets/fonts/ms-sans-serif.woff2);
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-ink: #111111;
   --color-paper: #ffffff;
@@ -10,8 +17,7 @@
   --color-visited: #551a8b;
   --color-danger: #cc0000;
 
-  --font-serif: "Times New Roman", Times, Georgia, serif;
-  --font-sans: Arial, Helvetica, sans-serif;
+  --font-win95: "Win95", sans-serif;
 }
 
 body {
@@ -67,10 +73,6 @@ a:visited {
   100% {
     background-position: 200% 0;
   }
-}
-
-.ticket-shape {
-  clip-path: polygon(0% 12px, 12px 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 @keyframes march {

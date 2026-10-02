@@ -1,4 +1,4 @@
-import NextEditionCTA from '../components/ads/NextEditionCTA'
+import CTAButton from '../components/ads/CTAButton'
 
 const sections = [
   {
@@ -53,7 +53,7 @@ export default function HowItWorks() {
       </div>
       {/* CTA */}
       <div className="mt-8">
-        <NextEditionCTA />
+        <CTAButton />
       </div>
     </div>
   )

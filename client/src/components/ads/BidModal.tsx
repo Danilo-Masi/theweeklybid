@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { AdSlot } from '../../types'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
     slot: AdSlot
@@ -21,6 +22,7 @@ const formatHintBySize: Record<AdSlot['size'], string> = {
 }
 
 export default function BidModal({ slot, onClose }: Props) {
+    const navigate = useNavigate()
     const minBid = slot.currentPrice + slot.minIncrement
     const [email, setEmail] = useState('')
     const [amount, setAmount] = useState(minBid)
@@ -48,7 +50,8 @@ export default function BidModal({ slot, onClose }: Props) {
         }
         // TODO: connect to the server (Fastify) once ready — upload the image file too
         console.log('Bid submitted:', { slotId: slot.id, email, amount, title, link, image })
-        onClose();
+        onClose()
+        navigate(`/bid/confirmation?slot=${slot.id}&amount=${amount}`)
     }
 
     return (

@@ -1,12 +1,11 @@
 import { useCountUp } from '../../hooks/useCountUp'
-import { mockSlots } from '../../lib/mockData'
+import { currentBid } from '../../lib/mockData'
 import HotBadge from '../ui/HotBadge'
 
-export default function BidStatsWidget() {
-    const sold = mockSlots.filter((s) => s.isSold)
-    const totalRaised = sold.reduce((sum, s) => sum + s.currentPrice, 0)
+export default function CurrentBidWidget() {
+    const totalRaised = currentBid.reduce((sum, s) => sum + s.price, 0)
     const animatedTotal = useCountUp(totalRaised, 1000)
-    const topSlot = [...sold].sort((a, b) => b.currentPrice - a.currentPrice)[0]
+    const topSlot = [...currentBid].sort((a, b) => b.price - a.price)[0]
 
     return (
         <aside className="panel-box p-3">
@@ -18,11 +17,11 @@ export default function BidStatsWidget() {
             </p>
 
             <ul className="space-y-1.5 text-xs">
-                {sold.map((slot) => (
+                {currentBid.map((slot) => (
                     <li key={slot.id} className="flex items-center justify-between gap-1 border-b border-border/50 pb-1">
-                        <span className="truncate">{slot.title}</span>
+                        <span className="truncate">Slot {slot.id}</span>
                         <span className="flex items-center gap-1 whitespace-nowrap">
-                            ${slot.currentPrice}
+                            ${slot.price}
                             {slot.id === topSlot?.id && <HotBadge />}
                         </span>
                     </li>

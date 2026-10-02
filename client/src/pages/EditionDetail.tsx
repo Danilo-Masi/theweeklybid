@@ -3,11 +3,9 @@ import AdSlotHero from '../components/ads/AdSlotHero'
 import AdSlotMedium from '../components/ads/AdSlotMedium'
 import AdSlotSmall from '../components/ads/AdSlotSmall'
 import UnderConstruction from '../components/ads/UnderConstruction'
-import BidStatsWidget from '../components/widgets/BidStatsWidget'
-import SlotWidget from '../components/widgets/ClicksWidget'
-import WeekRecordsWidget from '../components/widgets/WeekRecordsWidget'
-import MonthlyRecordsWidget from '../components/widgets/MonthlyRecordsWidget'
 import { mockEditions } from '../lib/mockData'
+import NextSlotListWidget from '../components/widgets/NextSlotListWidget'
+import NextBidListWidget from '../components/widgets/NextBidListWidget'
 
 export default function EditionDetail() {
   const { issueNumber } = useParams()
@@ -29,8 +27,7 @@ export default function EditionDetail() {
   return (
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-[180px_1fr_180px]">
       <div className="order-2 lg:order-1">
-        <BidStatsWidget />
-        <SlotWidget />
+        <NextSlotListWidget />
       </div>
 
       <main className="order-1 lg:order-2">
@@ -69,8 +66,7 @@ export default function EditionDetail() {
       </main>
 
       <div className="order-3">
-        <WeekRecordsWidget />
-        <MonthlyRecordsWidget />
+        <NextBidListWidget />
       </div>
     </div>
   )

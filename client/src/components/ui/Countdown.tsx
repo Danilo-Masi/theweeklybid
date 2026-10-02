@@ -1,13 +1,8 @@
 import { useAuctionCountdown } from '../../hooks/useAuctionCountdown'
 
-interface CountdownProps {
-    targetDate: Date
-    label?: string
-}
-
 const pad = (n: number) => n.toString().padStart(2, '0')
 
-export default function Countdown({ targetDate, label = 'Closes in:' }: CountdownProps) {
+export default function Countdown({ targetDate }: { targetDate: Date }) {
     const { days, hours, minutes, seconds, isOver } = useAuctionCountdown(targetDate)
 
     if (isOver) return <span className="text-sm text-muted">Auction closed</span>
@@ -16,8 +11,7 @@ export default function Countdown({ targetDate, label = 'Closes in:' }: Countdow
 
     return (
         <span className="text-sm">
-            {label}{' '}
-            <span className={`font-bold text-danger ${urgent ? 'blink' : ''}`}>
+            <span className={`font-bold text-2xl lg:text-3xl text-white ${urgent ? 'blink' : ''}`}>
                 {days > 0 && `${days}d `}
                 {pad(hours)}:{pad(minutes)}:{pad(seconds)}
             </span>

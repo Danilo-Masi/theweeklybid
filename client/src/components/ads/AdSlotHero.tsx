@@ -24,10 +24,10 @@ export default function AdSlotHero({ slot, variant, onBidClick }: Props) {
     return (
         <a href={slot.targetUrl} target="_blank" rel="noreferrer" className="block text-left">
             <div className="panel-box aspect-square md:aspect-video">
-                <img src={slot.imageUrl} alt={slot.title} className="h-full w-full object-cover" />
+                <img src={slot.imageUrl} alt={slot.title} className="h-full w-full object-cover object-center" />
             </div>
             <div className="mt-1 text-sm">
-                <a href={slot.targetUrl} target="_blank" rel="noreferrer">Sponsored by: {slot.title}</a>
+                <p>Sponsored by: {slot.title}</p>
             </div>
         </a>
     )

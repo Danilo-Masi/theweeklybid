@@ -2,13 +2,11 @@ import AdSlotHero from '../components/ads/AdSlotHero'
 import AdSlotMedium from '../components/ads/AdSlotMedium'
 import AdSlotSmall from '../components/ads/AdSlotSmall'
 import UnderConstruction from '../components/ads/UnderConstruction'
-import BidStatsWidget from '../components/widgets/BidStatsWidget'
-import MonthlyRecordsWidget from '../components/widgets/MonthlyRecordsWidget'
+import CurrentBidWidget from '../components/widgets/CurrentBidWidget'
 import StatsTicker from '../components/ui/StatsTicker'
 import { mockSlots } from '../lib/mockData'
-import NextEditionCTA from '../components/ads/NextEditionCTA'
-import SlotWidgte from '../components/widgets/ClicksWidget'
-import WeekRecordsWidget from '../components/widgets/WeekRecordsWidget'
+import CurrentClickWidget from '../components/widgets/CurrentClickWidget'
+import CTAButton from '../components/ads/CTAButton'
 
 export default function Home() {
   const hero = mockSlots.find((s) => s.size === 'hero')!
@@ -20,13 +18,12 @@ export default function Home() {
 
       {/* Widget statistiche del numero */}
       <div className="order-2 lg:order-1">
-        <BidStatsWidget />
-        <SlotWidgte />
+        <CurrentBidWidget />
       </div>
 
       <main className="order-1 lg:order-2">
         {/* CTA per compare spot */}
-        <NextEditionCTA />
+        <CTAButton />
 
         {/* Barra di scorrimento con dati */}
         <StatsTicker />
@@ -69,8 +66,7 @@ export default function Home() {
 
       {/* Widget statistiche mensili */}
       <div className="order-3">
-        <WeekRecordsWidget />
-        <MonthlyRecordsWidget />
+        <CurrentClickWidget />
       </div>
     </div>
   )
