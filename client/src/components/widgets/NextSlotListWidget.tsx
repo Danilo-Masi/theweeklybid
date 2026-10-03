@@ -6,11 +6,14 @@ export default function NextSlotListWidget() {
 
     return (
         <aside className="panel-box p-3">
-            <h2 className="text-xs font-bold border-b border-border pb-1 mb-2">AUCTION FOR SPOT</h2>
-            <p className="text-xs text-muted mb-2">
+            {/* Titolo */}
+            <h2 className="text-sm font-bold border-b border-border pb-1 mb-2">AUCTION FOR SPOT 🛒</h2>
+            {/* Sottotitolo */}
+            <p className="text-xs text-muted mb-3">
                 Sorted by spot id
             </p>
-            <ul className="space-y-1.5 text-xs">
+            {/* Lista */}
+            <ul className="space-y-2.5 text-xs">
                 {sponsor.map((sp) => (
                     <li key={sp.id} className="flex items-center justify-between gap-1 border-b border-border/50 pb-1">
                         <span className="truncate">Slot {sp.id}</span>

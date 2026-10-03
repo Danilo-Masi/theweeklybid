@@ -1,4 +1,5 @@
 import type { AdSlot } from '../../types'
+import PriceBanner from './PriceBanner'
 
 interface Props {
     slot: AdSlot
@@ -7,6 +8,7 @@ interface Props {
 }
 
 export default function AdSlotHero({ slot, variant, onBidClick }: Props) {
+    {/* 
     if (variant === 'auction') {
         return (
             <button type="button" onClick={() => onBidClick?.(slot)} className="block w-full text-left cursor-pointer">
@@ -16,6 +18,18 @@ export default function AdSlotHero({ slot, variant, onBidClick }: Props) {
                         <p className="text-[10px] font-bold uppercase tracking-wide">Current bid</p>
                         <p className="text-2xl font-bold leading-none blink">${slot.currentPrice}</p>
                     </div>
+                </div>
+            </button>
+        )
+    }
+        */}
+
+    if (variant === 'auction') {
+        return (
+            <button type="button" onClick={() => onBidClick?.(slot)} className="block w-full text-left cursor-pointer">
+                <div className="panel-box relative aspect-square md:aspect-video">
+                    <img src={slot.imageUrl} alt="Current leading bid" className="h-full w-full object-cover" />
+                    <PriceBanner price={500} />
                 </div>
             </button>
         )

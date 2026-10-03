@@ -2,26 +2,62 @@
 
 @font-face {
   font-family: "Win95";
-  src: url(./assets/fonts/ms-sans-serif.woff2);
+  src: url("./assets/fonts/w95f.woff2") format("woff2");
   font-style: normal;
   font-display: swap;
 }
 
 @theme {
-  --color-ink: #111111;
+  --color-ink: #000000;
   --color-paper: #ffffff;
-  --color-panel: #f2f2f2;
-  --color-border: #999999;
-  --color-muted: #555555;
+  --color-panel: #c0c0c0;
+  --color-face-light: #dfdfdf;
+  --color-shadow: #808080;
+  --color-dark-shadow: #000000;
+  --color-highlight: #ffffff;
+  --color-titlebar: #000080;
+  --color-muted: #444444;
   --color-link: #0000ee;
   --color-visited: #551a8b;
   --color-danger: #cc0000;
 
-  --font-win95: "Win95", sans-serif;
+  --font-sans: "Win95", Tahoma, "MS Sans Serif", sans-serif;
 }
 
 body {
-  @apply bg-panel text-ink font-sans antialiased;
+  @apply bg-panel text-ink font-sans text-[13px];
+
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+  text-rendering: optimizeSpeed;
+}
+
+/* Windows 95 raised bevel */
+@utility bevel-out {
+  background: var(--color-panel);
+  border-top: 1px solid var(--color-highlight);
+  border-left: 1px solid var(--color-highlight);
+  border-right: 1px solid var(--color-dark-shadow);
+  border-bottom: 1px solid var(--color-dark-shadow);
+  box-shadow:
+    inset 1px 1px 0 var(--color-face-light),
+    inset -1px -1px 0 var(--color-shadow);
+}
+
+/* Windows 95 sunken bevel */
+@utility bevel-in {
+  background: var(--color-paper);
+  border-top: 1px solid var(--color-dark-shadow);
+  border-left: 1px solid var(--color-dark-shadow);
+  border-right: 1px solid var(--color-highlight);
+  border-bottom: 1px solid var(--color-highlight);
+  box-shadow:
+    inset 1px 1px 0 var(--color-shadow),
+    inset -1px -1px 0 var(--color-face-light);
+}
+
+.panel-box {
+  @apply bevel-out;
 }
 
 a {
@@ -32,10 +68,7 @@ a:visited {
   color: var(--color-visited);
 }
 
-.panel-box {
-  @apply bg-paper border border-border;
-}
-
+/* Animations */
 @keyframes marquee {
   from {
     transform: translateX(100%);
@@ -52,27 +85,20 @@ a:visited {
 }
 
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
 
-  51%, 100% {
+  51%,
+  100% {
     opacity: 0;
   }
 }
 
 .blink {
   animation: blink 1s steps(1) infinite;
-}
-
-@keyframes shimmer-sweep {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
 }
 
 @keyframes march {

@@ -9,12 +9,15 @@ export default function CurrentClickWidget() {
 
     return (
         <aside className="panel-box p-3">
-            <h2 className="text-xs font-bold border-b border-border pb-1 mb-2">CLICK COUNTER</h2>
-            <p className="text-xs text-muted mb-2">
+            {/* Titolo */}
+            <h2 className="text-sm font-bold border-b border-border pb-1 mb-2">CLICK COUNTER 💻</h2>
+            {/* Sottotitolo */}
+            <p className="text-xs text-muted mb-3">
                 Total click this issue:{' '}
-                <strong className="text-danger">{animatedTotal} click</strong>
+                <strong className="text-danger underline">{animatedTotal} click</strong>
             </p>
-            <ul className="space-y-1.5 text-xs">
+            {/* Lista */}
+            <ul className="space-y-2.5 text-xs">
                 {currentClick.map((slot) => (
                     <li key={slot.id} className="flex items-center justify-between gap-1 border-b border-border/50 pb-1">
                         <span className="truncate">Slot {slot.id}</span>

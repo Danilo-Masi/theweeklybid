@@ -14,7 +14,7 @@ export default function Header() {
 
       {/* Titolo + descrizione */}
       <div className="w-full h-auto px-4 py-6 text-center bg-red-700">
-        <h1 className="font-serif text-4xl lg:text-7xl font-bold text-white">TheWeeklyBid.com</h1>
+        <h1 className="text-4xl lg:text-7xl font-bold text-white">TheWeeklyBid.com</h1>
         <p className="text-sm text-white/70 italic mt-1">
           Every week, 10 spaces. The highest bidder makes the front page.
         </p>
